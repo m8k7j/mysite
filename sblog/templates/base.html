@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="/static/bootstrap/css/reset.css">
+  <link rel="stylesheet" href="/static/bootstrap/css/style.css">
+  <link rel="stylesheet" href="/static/bootstrap/css/code.css">
+  <script src="/static/bootstrap/js/modernizr.js"></script>
+  <script src="/static/bootstrap/js/jquery.js"></script>
+  <meta charset="UTF-8" />
+  <title>
+    {% block title %}{% endblock %}
+  </title>
+  {% block extra_head %}
+  {% endblock %}
+</head>
+<body>
+  {% block body %}
+    {% block header %}
+	  {% block menu %}
+	  {% endblock %}
+	{% endblock %}
+  <div class="content"> 
+  {% block content %}
+    <div class="container-fluid">
+	  <div class="row-fluid">
+	    <div class="span9">
+		  {% block article %}
+		    {% block article_title %}
+			  {% comment %}
+			    the title of content area, such as blog of caption, and can be used for navie bar and so on, may be content tag is useful
+			  {% block [section]_menu %}{% block page_menu %}
+			  this is menu area for previous we talk,use as navie bar to wilzard
+			  {% endcomment %}
+            {% endblock %}
+			{% block article_content %}{% endblock %}
+		  {% endblock %}
+		  {% block article_menu %}{% endblock %}
+		  {% block comments %}{% endblock %}
+		</div>
+		<div class="span3">
+		  {% block aside %}
+		    {% block tags %}{% endblock %}
+		  {% endblock %}
+		</div>
+	  </div>
+	</div>
+  {% endblock %}
+  {% block foot %}
+  {# every one can change this foot page #}
+   <p>Thanks for visting my site!</p>
+  {% endblock %}
+{% endblock %}
+</div>
+<script src="/static/bootstrap.min.js"></script>
+</body>
+</html>
