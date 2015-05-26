@@ -7,9 +7,13 @@ from django.template import RequestContext
 
 # Create your views here.
 
+def index(request):
+	return render_to_response('blog_base.html')
+
 def blog_list(request):
   blogs=Blog.objects.all()
-  return render_to_response('sblog_list.html',{'blogs':blogs})
+  tags = Tag.objects.all()
+  return render_to_response('sblog_list.html',{'blogs':blogs,'tags':tags})
 
 def blog_show(request,id):
   try:
